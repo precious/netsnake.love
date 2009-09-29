@@ -1,7 +1,7 @@
 love.filesystem.require( "Server.lua" )
 love.filesystem.require( "Binary.lua" )
 
-count = 30	-- Count of pieces
+count = 20	-- Count of pieces
 mscount = 1	-- Number of messages, which snake was collected
 sleep_time = 25	-- Delay in ms
 j = 0	-- Number of the piece, which is moving now
@@ -137,11 +137,11 @@ function update(dt)
      elseif issnakeeatmessage(pieces_x_client1,pieces_y_client1,messes_x[1],messes_y[1]) then counter_c1 = counter_c1 + 1 ok = true
     end
 
-	if counter_s > 14 then global_counter_s = global_counter_s + 1
+	if counter_s > 4 then global_counter_s = global_counter_s + 1
 		counter_s = 0
 		counter_c1 = 0
 		server:send("glob_c_s" .. tonumber(global_counter_s) .. "glob_c_c1" .. tonumber(global_counter_c1))
-	  elseif counter_c1 > 14 then global_counter_c1 = global_counter_c1 + 1
+	  elseif counter_c1 > 4 then global_counter_c1 = global_counter_c1 + 1
 		counter_s = 0
 		counter_c1 = 0
 	    server:send("glob_c_s" .. tonumber(global_counter_s) .. "glob_c_c1" .. tonumber(global_counter_c1))

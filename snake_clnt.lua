@@ -1,7 +1,7 @@
 love.filesystem.require( "Client.lua" )
 love.filesystem.require( "Binary.lua" )
 
-count = 30	-- Count of pieces
+count = 20	-- Count of pieces
 mscount = 1	-- Number of messages, which snake was collected
 counter_s = 0
 counter = 0
@@ -22,7 +22,7 @@ messes_y = {}
 a = 1
 b = 0
 
-datafromserver = {}
+datafromserver = ""
 
 -- loading >>>
     key_time = 0
@@ -91,7 +91,7 @@ end
 
 client:Init()
 client:setHandshake("Hi")
-if client:connect("127.0.0.1", 9090, false) == nil then datafromserver = "Ready"
+if client:connect("192.168.137.1", 9090, false) == nil then datafromserver = "Ready"
 else error("Couldn't connect") end
 client:setCallback(received_data)
 --Client part The end
