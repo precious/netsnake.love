@@ -1,5 +1,6 @@
 function load()
 
+
 	font = love.graphics.newFont(love.default_font)
 	love.graphics.setFont(font)
 	center = {}
@@ -16,9 +17,9 @@ end
 
 function keypressed(key)
 	if key == love.key_s then
-		love.filesystem.require("snake_serv.lua")
+		love.filesystem.include("snake_serv.lua")
 	elseif key == love.key_c then
-		love.filesystem.require("snake_clnt.lua")
+		love.filesystem.include("snake_clnt.lua")
 	end
 end
 
